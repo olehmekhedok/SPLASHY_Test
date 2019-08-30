@@ -71,6 +71,7 @@
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\SourceCode\BallAnimation.cs" />
+    <Compile Include="Assets\SourceCode\BallAnimation2.cs" />
     <Compile Include="Assets\SourceCode\BallMover.cs" />
     <Compile Include="Assets\SourceCode\GameMamager.cs" />
     <Compile Include="Assets\SourceCode\InputMamager.cs" />

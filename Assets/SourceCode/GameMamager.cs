@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameMamager : MonoBehaviour
 {
+    public static string Abyss = "Abyss";
+    public static string Platform = "Platform";
+
     public static float Speed = 5;
 
     public Camera Camera;
@@ -13,6 +17,22 @@ public class GameMamager : MonoBehaviour
     private Color32 curColor32;
 
     public static GameMamager instance { get; protected set; }
+
+    public bool Pause
+    {
+        get => _pause;
+        set
+        {
+            if (value == false && _pause)
+            {
+                FindObjectOfType<BallAnimation2>().StartAnimation(1);
+            }
+
+            _pause = value;
+        }
+    }
+
+    private bool _pause = true;
 
     [ContextMenu("Do Something")]
     public void Awake()
@@ -39,11 +59,16 @@ public class GameMamager : MonoBehaviour
             }
         }
 
-        ChoseColor(0);
+        ChoseColor(1);
         instance = this;
     }
 
-    private void ChoseColor(int index)
+    public void RestGame()
+    {
+
+    }
+
+    public void ChoseColor(int index)
     {
         PlatfromLine[] lines = transform.GetComponentsInChildren<PlatfromLine>();
         PlatfromLine line = lines[index];
@@ -66,6 +91,11 @@ public class GameMamager : MonoBehaviour
         if (curColor32.a == platf.Color.a && curColor32.b == platf.Color.b && curColor32.g == platf.Color.g && curColor32.r == platf.Color.r)
         {
             ChoseColor(platf.LineIndex + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+
         }
     }
 }
