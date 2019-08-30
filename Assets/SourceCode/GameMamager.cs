@@ -48,6 +48,9 @@ public class GameMamager : MonoBehaviour
             line.transform.localPosition = new Vector3(cutpos.x, 0, start);
             start += Speed;
 
+            if (i > 5)
+                line.transform.LeanSetLocalPosY(5f);
+
             foreach (Platform platform in line.Platfroms)
             {
                 platform.Color = GecRandomColor();
@@ -70,20 +73,12 @@ public class GameMamager : MonoBehaviour
         int i = Random.Range(0, line.Platfroms.Length);
         curColor32 = line.Platfroms[i].Color;
 
-        var nextTen = index + 10;
-        if (lines.Length > nextTen)
+        if (lines.Length > index + 5)
         {
-            foreach (Platform platform in lines[nextTen].Platfroms)
-            {
-                platform.transform.LeanSetLocalPosY(10f);
-                platform.transform.LeanMoveLocalY(0, 3f).setEaseOutBounce();
-            }
+            lines[index + 5].transform.LeanMoveLocalY(0, 1.5f).setEaseOutBounce();
         }
 
-        LeanTween.value(Camera.gameObject, c =>
-        {
-            Ball.sharedMaterial.color = curColor32;
-        }, Camera.backgroundColor, curColor32, 0.15f);
+        LeanTween.value(Camera.gameObject, c => Ball.sharedMaterial.color = curColor32, Camera.backgroundColor, curColor32, 0.15f);
     }
 
     public Color32 GecRandomColor()
@@ -94,6 +89,10 @@ public class GameMamager : MonoBehaviour
 
     public void CheckColor(Platform platf)
     {
+#if UNITY_EDITOR
+        ChoseColor(platf.LineIndex + 1);
+        return;
+#endif
         if (curColor32.a == platf.Color.a && curColor32.b == platf.Color.b && curColor32.g == platf.Color.g && curColor32.r == platf.Color.r)
         {
             ChoseColor(platf.LineIndex + 1);
