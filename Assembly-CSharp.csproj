@@ -113,6 +113,7 @@
     <Compile Include="Assets\ThirdParty\LeanTween\Framework\LTSeq.cs" />
     <None Include="Assets\ThirdParty\LeanTween\Examples\Archived\2dUnlitWithFade.shader" />
     <None Include="Assets\ThirdParty\LeanTween\ReadMe.txt" />
+    <None Include="Assets\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
     <None Include="Assets\ThirdParty\LeanTween\License.txt" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="Unity.Timeline.Editor">

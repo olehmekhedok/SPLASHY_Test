@@ -63,21 +63,27 @@ public class GameMamager : MonoBehaviour
         instance = this;
     }
 
-    public void RestGame()
-    {
-
-    }
-
     public void ChoseColor(int index)
     {
         PlatfromLine[] lines = transform.GetComponentsInChildren<PlatfromLine>();
         PlatfromLine line = lines[index];
         int i = Random.Range(0, line.Platfroms.Length);
-        Platform platf = line.Platfroms[i];
+        curColor32 = line.Platfroms[i].Color;
 
-        curColor32 = platf.Color;
-        Camera.backgroundColor = platf.Color;
-        Ball.material.color = platf.Color;
+        var nextTen = index + 10;
+        if (lines.Length > nextTen)
+        {
+            foreach (Platform platform in lines[nextTen].Platfroms)
+            {
+                platform.transform.LeanSetLocalPosY(10f);
+                platform.transform.LeanMoveLocalY(0, 3f).setEaseOutBounce();
+            }
+        }
+
+        LeanTween.value(Camera.gameObject, c =>
+        {
+            Ball.sharedMaterial.color = curColor32;
+        }, Camera.backgroundColor, curColor32, 0.15f);
     }
 
     public Color32 GecRandomColor()
@@ -88,14 +94,15 @@ public class GameMamager : MonoBehaviour
 
     public void CheckColor(Platform platf)
     {
+        ChoseColor(platf.LineIndex + 1);
+
         if (curColor32.a == platf.Color.a && curColor32.b == platf.Color.b && curColor32.g == platf.Color.g && curColor32.r == platf.Color.r)
         {
-            ChoseColor(platf.LineIndex + 1);
+          //  ChoseColor(platf.LineIndex + 1);
         }
         else
         {
-            SceneManager.LoadScene(0);
-
+            //SceneManager.LoadScene(0);
         }
     }
 }
