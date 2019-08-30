@@ -94,15 +94,13 @@ public class GameMamager : MonoBehaviour
 
     public void CheckColor(Platform platf)
     {
-        ChoseColor(platf.LineIndex + 1);
-
         if (curColor32.a == platf.Color.a && curColor32.b == platf.Color.b && curColor32.g == platf.Color.g && curColor32.r == platf.Color.r)
         {
-          //  ChoseColor(platf.LineIndex + 1);
+            ChoseColor(platf.LineIndex + 1);
         }
         else
         {
-            //SceneManager.LoadScene(0);
+            SceneManager.LoadScene(0);
         }
     }
 }
