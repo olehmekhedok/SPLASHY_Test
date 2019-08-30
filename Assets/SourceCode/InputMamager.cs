@@ -5,7 +5,7 @@ public class InputMamager : MonoBehaviour
     public float speed;
 
     public GameObject ball;
-    public Camera camera;
+    public GameObject camera;
 
     private Vector3 _delta;
 
@@ -43,13 +43,12 @@ public class InputMamager : MonoBehaviour
 
     private void UpdatePos(Vector3 inputPosition)
     {
-    //    inputPosition.z = 10.0f;
- //       inputPosition = Camera.main.ScreenToWorldPoint(inputPosition);
-
-        var bp = ball.transform.localPosition;
-
+        Vector3 bp = ball.transform.localPosition;
         bp.x += (inputPosition.x * speed);
-
         ball.transform.localPosition = bp;
+
+        var cp = camera.transform.localPosition;
+        cp.x += (inputPosition.x * speed);
+        camera.transform.localPosition = cp;
     }
 }
