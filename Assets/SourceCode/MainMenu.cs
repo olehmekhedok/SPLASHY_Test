@@ -4,7 +4,7 @@ using Zenject;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject _levelSelection = default;
+    [SerializeField] private GameObject[] _uiObjects = default;
     [SerializeField] private Text _totalScore = default;
 
     [Inject] private IProgressController _progressController = default;
@@ -36,7 +36,9 @@ public class MainMenu : MonoBehaviour
 
     private void SetContentActive(bool isActive)
     {
-        _levelSelection.SetActive(isActive);
-        _totalScore.gameObject.SetActive(isActive);
+        foreach (var uiObject in _uiObjects)
+        {
+            uiObject.SetActive(isActive);
+        }
     }
 }

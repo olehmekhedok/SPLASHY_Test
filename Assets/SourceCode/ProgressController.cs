@@ -3,13 +3,17 @@ using Zenject;
 
 public interface IProgressController
 {
+    void AddCrystals(int crystals);
+
     int TotalScore { get; }
     int CurrentScore { get; }
     int Crystals { get; }
+    int Levels { get; }
 
     event Action<int> OnTotalScore;
     event Action<int> OnCurrentScore;
     event Action<int> OnCrystals;
+    event Action<int> OnLevels;
 }
 
 public class ProgressController : IProgressController
@@ -19,19 +23,26 @@ public class ProgressController : IProgressController
     public int TotalScore { get; private set; }
     public int CurrentScore { get; private set; }
     public int Crystals { get; private set; }
+    public int Levels { get; private set; }
 
     public event Action<int> OnTotalScore;
     public event Action<int> OnCurrentScore;
     public event Action<int> OnCrystals;
+    public event Action<int> OnLevels;
 
     [Inject]
     public ProgressController(IGameController gameController)
     {
         _gameController = gameController;
         _gameController.OnNextPlatform += OnNextPlatform;
-
         _gameController.OnStartMatch += OnStartMatch;
         _gameController.OnFinishMatch += OnFinishMatch;
+    }
+
+    public void AddCrystals(int crystals)
+    {
+        Crystals += crystals;
+        OnCrystals?.Invoke(crystals);
     }
 
     private void OnStartMatch()
@@ -40,8 +51,14 @@ public class ProgressController : IProgressController
         OnCurrentScore?.Invoke(CurrentScore);
     }
 
-    private void OnFinishMatch()
+    private void OnFinishMatch(bool succeed)
     {
+        if (succeed)
+        {
+            ++Levels;
+            OnLevels?.Invoke(Levels);
+        }
+
         TotalScore += CurrentScore;
         OnTotalScore?.Invoke(TotalScore);
     }

@@ -12,7 +12,7 @@ public interface IGameController
     PlatformType NextPlatformType { get; }
     event Action<PlatformType> OnNextPlatform;
     event Action OnStartMatch;
-    event Action OnFinishMatch;
+    event Action<bool> OnFinishMatch;
     event Action OnResetMatch;
 }
 
@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour, IGameController
 {
     public event Action<PlatformType> OnNextPlatform;
     public event Action OnStartMatch;
-    public event Action OnFinishMatch;
+    public event Action<bool> OnFinishMatch;
     public event Action OnResetMatch;
 
     [Inject] private IGameConfig _config = default;
@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour, IGameController
         {
 
             Debug.LogError("Abyss.");
-            FinishMatch();
+            FinishMatch(false);
         }
 
         return false;
@@ -75,7 +75,7 @@ public class GameController : MonoBehaviour, IGameController
         }
         else
         {
-            FinishMatch();
+            FinishMatch(false);
             return false;
         }
     }
@@ -91,14 +91,14 @@ public class GameController : MonoBehaviour, IGameController
         else
         {
             Debug.LogError("Won.");
-            FinishMatch();
+            FinishMatch(true);
         }
     }
 
-    private void FinishMatch()
+    private void FinishMatch(bool succeed)
     {
         IsPause = true;
-        OnFinishMatch?.Invoke();
+        OnFinishMatch?.Invoke(succeed);
     }
 
     private void OnClick()

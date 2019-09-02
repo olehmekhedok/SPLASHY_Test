@@ -3,6 +3,8 @@
     public const string Level = "level";
     public const string Platform = "Platform_001";
     public const string LevelCell = "LevelCell";
+    public const string BonusCell = "BonusCell";
+    public const string MissionCell = "MissionCell";
     public static string AbyssTag = "Abyss";
     public static string PlatformTag = "Platform";
 

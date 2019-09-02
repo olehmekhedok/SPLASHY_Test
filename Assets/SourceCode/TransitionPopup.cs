@@ -20,7 +20,7 @@ public class TransitionPopup : MonoBehaviour
         Canvas.alpha = 0f;
     }
 
-    private void OnFinishMatch()
+    private void OnFinishMatch(bool succeed)
     {
         FadeIn();
     }
