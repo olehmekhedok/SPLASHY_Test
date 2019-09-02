@@ -1,34 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Zenject;
 
 public interface ILevelsController
 {
-    event Action<int> OnLevelLoad;
-    void LoadLevel(int levelId);
+    void SelectLevel(int levelId);
+    int CurrentLevel { get; }
 }
 
 public class LevelsController : ILevelsController
 {
-    [Inject] private IGameConfig _config;
-    [Inject] Platform.Pool _platformPool;
-
-    private int _currentLevel;
-    public event Action<int> OnLevelLoad;
+    [Inject] private IGameConfig _config = default;
+    [Inject] Platform.Pool _platformPool = default;
 
     private readonly List<Platform> _platforms = new List<Platform>();
 
-    public void LoadLevel(int levelId)
-    {
-        var confg = _config.GetLevelConfigBy(levelId);
+    public int CurrentLevel { get; private set; }
 
-        foreach (var platform in confg.Platforms)
+    public LevelsController(IGameController gameController)
+    {
+        gameController.OnResetMatch += OnResetMatch;
+    }
+
+    public void SelectLevel(int levelId)
+    {
+        CurrentLevel = levelId;
+        UnLoadLevel();
+
+        var configs = _config.GetLevelConfigBy(levelId);
+        foreach (var config in configs.Platforms)
         {
-            _platforms.Add(_platformPool.Spawn(platform));
+            _platforms.Add(_platformPool.Spawn(config));
         }
     }
 
-    public void UnLoadLevel()
+    private void UnLoadLevel()
     {
         foreach (var platform in _platforms)
         {
@@ -36,5 +41,10 @@ public class LevelsController : ILevelsController
         }
 
         _platforms.Clear();
+    }
+
+    private void OnResetMatch()
+    {
+        SelectLevel(CurrentLevel);
     }
 }

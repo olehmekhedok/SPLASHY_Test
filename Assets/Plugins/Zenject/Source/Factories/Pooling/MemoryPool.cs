@@ -57,7 +57,7 @@ namespace Zenject
             return item;
         }
 
-        protected virtual void Reinitialize(TParam1 p1, TValue item)
+        protected virtual void Reinitialize(TParam1 config, TValue item)
         {
             // Optional
         }

@@ -8,6 +8,7 @@ public interface IGameConfig
     int PlatformGap { get; }
     float BallSpeed { get; }
     float InputSpeed { get; }
+    IEnumerable<LevelConfig> LevelConfigs { get; }
     Color GetPlatformColorBy(PlatformType type);
     LevelConfig GetLevelConfigBy(int levelId);
 }
@@ -21,15 +22,17 @@ public struct PlatformColorConfig
 
 public class GameConfig : SingletonScriptableObject<GameConfig>, IGameConfig
 {
-    [SerializeField] private float _ballSpeed;
-    [SerializeField] private float _inputSpeed;
-    [SerializeField] private int _platformGap;
-    [SerializeField] private PlatformColorConfig[] _platformColors;
+    [SerializeField] private float _ballSpeed = default;
+    [SerializeField] private float _inputSpeed = default;
+    [SerializeField] private int _platformGap = default;
+    [SerializeField] private PlatformColorConfig[] _platformColors = default;
     private readonly Dictionary<int, LevelConfig> _levels = new Dictionary<int, LevelConfig>();
 
     public int PlatformGap => _platformGap;
     public float BallSpeed => _ballSpeed;
     public float InputSpeed => _inputSpeed;
+
+    public IEnumerable<LevelConfig> LevelConfigs => _levels.Values;
 
     private void OnEnable()
     {

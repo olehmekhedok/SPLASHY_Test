@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\SourceCode\Editor\EditorTimeInstaller.cs" />
     <Compile Include="Assets\SourceCode\Editor\GameConfigSelector.cs" />
+    <Compile Include="Assets\SourceCode\Editor\LevelEditorInspector.cs" />
     <Compile Include="Assets\SourceCode\Editor\PlatformEditor.cs" />
     <Compile Include="Assets\ThirdParty\LeanTween\Editor\LeanTweenDocumentationEditor.cs" />
     <Reference Include="UnityEditor.TestRunner">
