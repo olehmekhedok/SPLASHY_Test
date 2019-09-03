@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
@@ -6,19 +7,25 @@ public class TopBarView : MonoBehaviour
 {
     [SerializeField] private Text _score = default;
     [SerializeField] private Text _crystals = default;
+    [SerializeField] private Text _totalScore = default;
 
     [Inject] private IProgressController _progressController = default;
     [Inject] private IGameController _gameController = default;
 
+    private Vector3 _initPosition;
+
     private void Awake()
     {
         _progressController.OnCurrentScore += OnCurrentScore;
+        _progressController.OnTotalScore += OnTotalScore;
         _progressController.OnCrystals += OnCrystals;
 
         _gameController.OnStartMatch += OnStartMatch;
-        _gameController.OnFinishMatch += OnFinishMatch;
+        _gameController.OnResetMatch += OnResetMatch;
 
-        _score.gameObject.SetActive(false);
+        _initPosition = _totalScore.transform.position;
+
+        OnResetMatch();
     }
 
     private void OnCrystals(int crystals)
@@ -30,16 +37,23 @@ public class TopBarView : MonoBehaviour
 
     private void OnStartMatch()
     {
-        _score.gameObject.SetActive(true);
+        LeanTween.moveY(_score.gameObject, _initPosition.y, 0.2f);
+        LeanTween.moveY(_totalScore.gameObject, _initPosition.y + 300f, 0.2f);
     }
 
-    private void OnFinishMatch(bool succeed)
+    private void OnResetMatch()
     {
-        _score.gameObject.SetActive(false);
+        LeanTween.moveY(_score.gameObject, _initPosition.y + 300f, 0.2f);
+        LeanTween.moveY(_totalScore.gameObject, _initPosition.y, 0.2f);
+    }
+
+    private void OnTotalScore(int score)
+    {
+        _totalScore.text = $"Total Score{Environment.NewLine}<color=#978679>{score}</color>";
     }
 
     private void OnCurrentScore(int score)
     {
-        _score.text = "Score:" + score;
+        _score.text = $"Score{Environment.NewLine}<color=#978679>{score}</color>";
     }
 }

@@ -19,6 +19,13 @@ public class LevelsController : ILevelsController
     public LevelsController(IGameController gameController)
     {
         gameController.OnResetMatch += OnResetMatch;
+        gameController.OnFinishMatch += OnFinishMatch;
+    }
+
+    private void OnFinishMatch(bool succeed)
+    {
+        if (succeed)
+            ++CurrentLevel;
     }
 
     public void SelectLevel(int levelId)

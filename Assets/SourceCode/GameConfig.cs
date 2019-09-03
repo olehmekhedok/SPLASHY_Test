@@ -47,7 +47,8 @@ public class GameConfig : SingletonScriptableObject<GameConfig>, IGameConfig
 
     public LevelConfig GetLevelConfigBy(int levelId)
     {
-        _levels.TryGetValue(levelId, out var config);
+        var index = levelId % _levels.Count;
+        _levels.TryGetValue(index + 1, out var config);
         return config;
     }
 

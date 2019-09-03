@@ -13,17 +13,25 @@ MonoBehaviour:
   m_Name: MissionsConfig
   m_EditorClassIdentifier: 
   _missions:
-  - Missions:
-    - Type: 1
+  - Reward: 500
+    Missions:
+    - Title: Collect Crystal
+      Type: 1
       Amount: 50
-    - Type: 2
+    - Title: Collect Score
+      Type: 2
       Amount: 100
-    - Type: 3
+    - Title: Finish Level
+      Type: 3
       Amount: 3
-  - Missions:
-    - Type: 1
+  - Reward: 1000
+    Missions:
+    - Title: Collect Crystal
+      Type: 1
       Amount: 100
-    - Type: 2
+    - Title: Collect Score
+      Type: 2
       Amount: 200
-    - Type: 3
+    - Title: Finish Level
+      Type: 3
       Amount: 10

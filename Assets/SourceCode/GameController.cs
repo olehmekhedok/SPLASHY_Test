@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour, IGameController
     [Inject] private IGameConfig _config = default;
     [Inject] private ILevelsController _levelsController = default;
     [Inject] private IInputController _inputController = default;
+    [Inject] private IWindowsController _windowsController = default;
 
     public PlatformType NextPlatformType { get; private set; }
     public int NextPlatformIndex { get; private set; }
@@ -34,7 +35,7 @@ public class GameController : MonoBehaviour, IGameController
     private void Awake()
     {
         _inputController.OnClick += OnClick;
-        _levelsController.SelectLevel(1);
+        _levelsController.SelectLevel(0);
         NextPlatform(++NextPlatformIndex);
     }
 
@@ -64,20 +65,14 @@ public class GameController : MonoBehaviour, IGameController
 
     public bool CheckColor(PlatformType type)
     {
-//#if UNITY_EDITOR
-//        NextPlatform(++NextPlatformIndex);
-//        return true;
-//#endif
         if (type == NextPlatformType)
         {
             NextPlatform(++NextPlatformIndex);
             return true;
         }
-        else
-        {
-            FinishMatch(false);
-            return false;
-        }
+
+        FinishMatch(false);
+        return false;
     }
 
     private void NextPlatform(int platformIndex)
@@ -98,6 +93,7 @@ public class GameController : MonoBehaviour, IGameController
     private void FinishMatch(bool succeed)
     {
         IsPause = true;
+        _windowsController.WindowRequest(WindowType.Transition);
         OnFinishMatch?.Invoke(succeed);
     }
 
@@ -110,52 +106,3 @@ public class GameController : MonoBehaviour, IGameController
         }
     }
 }
-
-
-//    [ContextMenu("Do Something")]
-//    public void Awake()
-//    {
-//        PlatfromLine[] lines = transform.GetComponentsInChildren<PlatfromLine>();
-//        var start = 0f;
-//
-//        for (var i = 0; i < lines.Length; i++)
-//        {
-//            var line = lines[i];
-//
-//            var cutpos = line.transform.localPosition;
-//            line.transform.localPosition = new Vector3(cutpos.x, 0, start);
-//            start += Speed;
-//
-//            if (i > 5)
-//                line.transform.LeanSetLocalPosY(5f);
-//
-//            foreach (Platform platform in line.Platfroms)
-//            {
-//                platform.Color = GecRandomColor();
-//                platform.LineIndex = i;
-//                var lp = platform.transform.localPosition;
-//                platform.transform.localPosition = new Vector3(lp.x, 0, 0);
-//
-//                platform.GetComponent<MeshRenderer>().material.color = platform.Color;
-//            }
-//        }
-//
-//        ChoseColor(1);
-//    }
-
-
-
-//    public void ChoseColor(int index)
-//    {
-//        PlatfromLine[] lines = transform.GetComponentsInChildren<PlatfromLine>();
-//        PlatfromLine line = lines[index];
-//        int i = Random.Range(0, line.Platfroms.Length);
-//        curColor32 = line.Platfroms[i].Color;
-//
-//        if (lines.Length > index + 5)
-//        {
-//            lines[index + 5].transform.LeanMoveLocalY(0, 1.5f).setEaseOutBounce();
-//        }
-//
-//       // LeanTween.value(Camera.gameObject, c => Ball.sharedMaterial.color = curColor32, Camera.backgroundColor, curColor32, 0.15f);
-//    }

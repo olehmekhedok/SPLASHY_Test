@@ -4,30 +4,35 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class MissionsView : MonoBehaviour
+public class MissionsWindow : WindowBase
 {
-    [SerializeField] private Button _showContent = default;
-    [SerializeField] private Button _hideContent = default;
+    [SerializeField] private Button _closeButton = default;
     [SerializeField] private GameObject _content = default;
+    [SerializeField] private Text _reward = default;
 
     [Inject] private IMissionsController _missionsController = default;
-    [Inject] private IProgressController _progressController;
+    [Inject] private IProgressController _progressController = default;
+    [Inject] private IWindowsController _windowsController = default;
 
     private readonly List<MissionCell> _missions = new List<MissionCell>();
 
-    private void Awake()
-    {
-        _showContent.onClick.AddListener(ShowContent);
-        _hideContent.onClick.AddListener(HideContent);
+    public override WindowType Type => WindowType.Missions;
 
-        CreateMissionsView();
+    private void Start()
+    {
+        _closeButton.onClick.AddListener(CloseWindow);
         _missionsController.OnMissionCompleted += OnMissionCompleted;
+
+        CreateMission();
     }
 
-    private void ShowContent()
+    private void OnEnable()
     {
-        _content.SetActive(true);
+        UpdateProgress();
+    }
 
+    private void UpdateProgress()
+    {
         foreach (var mission in _missions)
         {
             var amount = 0;
@@ -37,7 +42,7 @@ public class MissionsView : MonoBehaviour
                     amount = _progressController.Crystals;
                     break;
 
-                case MissionType.JumpOnPlatform:
+                case MissionType.CollectScore:
                     amount = _progressController.TotalScore;
                     break;
 
@@ -50,9 +55,9 @@ public class MissionsView : MonoBehaviour
         }
     }
 
-    private void HideContent()
+    private void CloseWindow()
     {
-        _content.SetActive(false);
+        _windowsController.WindowRequest(Type, false);
     }
 
     private void OnMissionCompleted(MissionConfig config)
@@ -61,14 +66,19 @@ public class MissionsView : MonoBehaviour
         mission.InitMission(config);
     }
 
-    private void CreateMissionsView()
+    private void CreateMission()
     {
         var template = Resources.Load<MissionCell>(Const.MissionCell);
-        foreach (var config in _missionsController.GetCurrentMissions.Missions)
+        var missions =_missionsController.GetCurrentMissions;
+        _reward.text = missions.Reward.ToString();
+
+        foreach (var config in missions.Missions)
         {
             var cell = Instantiate(template, _content.transform);
             cell.InitMission(config);
             _missions.Add(cell);
         }
+
+        UpdateProgress();
     }
 }

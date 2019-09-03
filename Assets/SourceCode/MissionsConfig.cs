@@ -10,6 +10,7 @@ public interface IMissionsConfig
 [Serializable]
 public struct MissionConfig
 {
+    public string Title;
     public MissionType Type;
     public int Amount;
 }
@@ -17,6 +18,7 @@ public struct MissionConfig
 [Serializable]
 public struct MissionsSetConfig
 {
+    public int Reward;
     public MissionConfig[] Missions;
 }
 

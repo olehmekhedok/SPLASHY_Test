@@ -74,7 +74,8 @@
     <Compile Include="Assets\SourceCode\BonusCell.cs" />
     <Compile Include="Assets\SourceCode\BonusesConfig.cs" />
     <Compile Include="Assets\SourceCode\BonusesController.cs" />
-    <Compile Include="Assets\SourceCode\BonusesView.cs" />
+    <Compile Include="Assets\SourceCode\BonusesWindow.cs" />
+    <Compile Include="Assets\SourceCode\BottomBarView.cs" />
     <Compile Include="Assets\SourceCode\Const.cs" />
     <Compile Include="Assets\SourceCode\DTOs\Level.cs" />
     <Compile Include="Assets\SourceCode\GameConfig.cs" />
@@ -84,20 +85,23 @@
     <Compile Include="Assets\SourceCode\LevelCell.cs" />
     <Compile Include="Assets\SourceCode\LevelEditor.cs" />
     <Compile Include="Assets\SourceCode\LevelsController.cs" />
-    <Compile Include="Assets\SourceCode\LevelSelectionView.cs" />
-    <Compile Include="Assets\SourceCode\MainMenu.cs" />
+    <Compile Include="Assets\SourceCode\LevelSelectionWindow.cs" />
     <Compile Include="Assets\SourceCode\MissionCell.cs" />
     <Compile Include="Assets\SourceCode\MissionsConfig.cs" />
     <Compile Include="Assets\SourceCode\MissionsController.cs" />
-    <Compile Include="Assets\SourceCode\MissionsView.cs" />
+    <Compile Include="Assets\SourceCode\MissionsWindow.cs" />
     <Compile Include="Assets\SourceCode\MissionType.cs" />
     <Compile Include="Assets\SourceCode\Mover.cs" />
     <Compile Include="Assets\SourceCode\Platform.cs" />
     <Compile Include="Assets\SourceCode\PlatformType.cs" />
     <Compile Include="Assets\SourceCode\ProgressController.cs" />
+    <Compile Include="Assets\SourceCode\RequestWindowButton.cs" />
     <Compile Include="Assets\SourceCode\SingletonScriptableObject.cs" />
     <Compile Include="Assets\SourceCode\TopBarView.cs" />
-    <Compile Include="Assets\SourceCode\TransitionPopup.cs" />
+    <Compile Include="Assets\SourceCode\TransitionWindow.cs" />
+    <Compile Include="Assets\SourceCode\WindowBase.cs" />
+    <Compile Include="Assets\SourceCode\WindowsController.cs" />
+    <Compile Include="Assets\SourceCode\WindowType.cs" />
     <Compile Include="Assets\ThirdParty\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
     <Compile Include="Assets\ThirdParty\LeanTween\Examples\Archived\TestingPunch.cs" />
     <Compile Include="Assets\ThirdParty\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
@@ -162,6 +166,9 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

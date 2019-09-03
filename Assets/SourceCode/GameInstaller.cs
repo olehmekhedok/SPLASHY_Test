@@ -7,6 +7,7 @@ public class GameInstaller : MonoInstaller
     {
         Container.BindInterfacesAndSelfTo<GameController>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesAndSelfTo<InputController>().FromComponentInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<WindowsController>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesAndSelfTo<LevelsController>().AsSingle();
         Container.BindInterfacesAndSelfTo<ProgressController>().AsSingle().Lazy();
         Container.BindInterfacesAndSelfTo<BonusesController>().AsSingle().Lazy();

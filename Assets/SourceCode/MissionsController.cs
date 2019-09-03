@@ -46,7 +46,7 @@ public class MissionsController : IMissionsController
 
     private void OnTotalScore(int score)
     {
-        var mission = GetMissionBy(MissionType.JumpOnPlatform);
+        var mission = GetMissionBy(MissionType.CollectScore);
         if (mission.Amount <= score)
         {
             OnMissionCompleted?.Invoke(mission);
