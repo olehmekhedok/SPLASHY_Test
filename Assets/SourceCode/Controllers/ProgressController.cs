@@ -1,5 +1,4 @@
 ﻿using System;
-using Zenject;
 
 public interface IProgressController
 {
@@ -41,7 +40,7 @@ public class ProgressController : IProgressController
     public void AddCrystals(int crystals)
     {
         Crystals += crystals;
-        OnCrystals?.Invoke(crystals);
+        OnCrystals?.Invoke(Crystals);
     }
 
     private void OnStartMatch()

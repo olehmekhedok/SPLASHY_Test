@@ -1,10 +1,13 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
 public interface IBonusesController
 {
+    event Action OnRewardCollected;
     float NextBonusTime { get; }
+    bool IsBonusReady { get; }
     void Collect(int hours);
 }
 
@@ -13,6 +16,10 @@ public class BonusesController : IBonusesController
 {
     [Inject] private IBonusesConfig _bonusesConfig = default;
     [Inject] private IProgressController _progressController = default;
+
+    public event Action OnRewardCollected;
+
+    public bool IsBonusReady { get; private set; } = true;
 
     public float NextBonusTime
     {
@@ -25,7 +32,13 @@ public class BonusesController : IBonusesController
 
     public void Collect(int hours)
     {
-        var config = _bonusesConfig.GetBonuses.First(b => b.Hours == hours);
-        _progressController.AddCrystals(config.Reward);
+        if (IsBonusReady)
+        {
+            IsBonusReady = false;
+            var config = _bonusesConfig.GetBonuses.First(b => b.Hours == hours);
+            _progressController.AddCrystals(config.Reward);
+
+            OnRewardCollected?.Invoke();
+        }
     }
 }

@@ -14,9 +14,9 @@ public class ConfigsSelector
         Selection.activeObject = BonusesConfig.Instance;
     }
     
-    [MenuItem("Tools/MissionsConfig")]
-    public static void SelectMissionsConfig(MenuCommand menuCommand)
+    [MenuItem("Tools/QuestsConfig")]
+    public static void SelectQuestsConfig(MenuCommand menuCommand)
     {
-        Selection.activeObject = MissionsConfig.Instance;
+        Selection.activeObject = QuestsConfig.Instance;
     }
 }
