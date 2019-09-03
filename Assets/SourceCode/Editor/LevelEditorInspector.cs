@@ -22,7 +22,7 @@ public class LevelEditorInspector : Editor
         if (GUILayout.Button("Update Platforms"))
         {
             var gap = Config.PlatformGap;
-            var platforms = FindObjectsOfType<Platform>();
+            var platforms = FindObjectsOfType<PlatformView>();
 
             foreach (var child in platforms)
             {
@@ -40,7 +40,7 @@ public class LevelEditorInspector : Editor
         {
             Target.LevelPath = Selection.objects
                 .Cast<GameObject>()
-                .Select(o => o.GetComponent<Platform>())
+                .Select(o => o.GetComponent<PlatformView>())
                 .Where(o => o != null)
                 .OrderBy(p => p.transform.position.z)
                 .ToArray();
@@ -56,10 +56,10 @@ public class LevelEditorInspector : Editor
 
         if (GUILayout.Button("Randomize Platforms Types"))
         {
-            var platforms = FindObjectsOfType<Platform>();
+            var platforms = FindObjectsOfType<PlatformView>();
             var allTypes = Enum.GetValues(typeof(PlatformType)).Cast<PlatformType>().Where(t => t != PlatformType.None).ToArray();
 
-            foreach (Platform platform in platforms)
+            foreach (PlatformView platform in platforms)
             {
                 var index = Random.Range(0, allTypes.Length);
                 var sr = new SerializedObject(platform);
@@ -76,7 +76,7 @@ public class LevelEditorInspector : Editor
             var id = sceneName.Split('_').Last();
             var levelConfig = new LevelConfig
             {
-                Platforms = FindObjectsOfType<Platform>()
+                Platforms = FindObjectsOfType<PlatformView>()
                     .Select(p => new PlatformConfig {Type = p.Type, Position = p.transform.position}).ToList(),
 
                 Path = Target.LevelPath.Select(p => p.Type).ToList(),

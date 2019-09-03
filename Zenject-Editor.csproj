@@ -62,21 +62,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\ContextEditor.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\GameObjectContextEditor.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\ProjectContextEditor.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\RunnableContextEditor.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\SceneContextEditor.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\SceneDecoratorContextEditor.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\EditorStaticInstaller.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\EditorWindow\ZenjectEditorWindow.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\ObjectGraphVisualizer.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\SceneParentLoading\DefaultSceneContractConfig.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\SceneParentLoading\SceneParentAutomaticLoader.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\UnityInspectorListEditor.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\ZenMenuItems.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\ZenUnityEditorUtil.cs" />
-    <None Include="Assets\Plugins\Zenject\Source\Editor\Zenject-Editor.asmdef" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\Editors\ContextEditor.cs" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\Editors\GameObjectContextEditor.cs" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\Editors\ProjectContextEditor.cs" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\Editors\RunnableContextEditor.cs" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\Editors\SceneContextEditor.cs" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\Editors\SceneDecoratorContextEditor.cs" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\EditorStaticInstaller.cs" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\EditorWindow\ZenjectEditorWindow.cs" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\ObjectGraphVisualizer.cs" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\SceneParentLoading\DefaultSceneContractConfig.cs" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\SceneParentLoading\SceneParentAutomaticLoader.cs" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\UnityInspectorListEditor.cs" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\ZenMenuItems.cs" />
+    <Compile Include="Assets\ThirdParty\Zenject\Source\Editor\ZenUnityEditorUtil.cs" />
+    <None Include="Assets\ThirdParty\Zenject\Source\Editor\Zenject-Editor.asmdef" />
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
@@ -281,20 +281,8 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
-      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
-      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
-      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
-      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
-    </Reference>
     <Reference Include="Zenject-usage">
-      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Assets/ThirdParty/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>

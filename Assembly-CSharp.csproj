@@ -62,63 +62,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\SourceCode\BallView.cs" />
-    <Compile Include="Assets\SourceCode\BonusCell.cs" />
-    <Compile Include="Assets\SourceCode\BonusesConfig.cs" />
-    <Compile Include="Assets\SourceCode\BonusesController.cs" />
-    <Compile Include="Assets\SourceCode\BonusesWindow.cs" />
-    <Compile Include="Assets\SourceCode\BottomBarView.cs" />
+    <Compile Include="Assets\SourceCode\Configs\BonusesConfig.cs" />
+    <Compile Include="Assets\SourceCode\Configs\GameConfig.cs" />
+    <Compile Include="Assets\SourceCode\Configs\MissionsConfig.cs" />
     <Compile Include="Assets\SourceCode\Const.cs" />
-    <Compile Include="Assets\SourceCode\DTOs\Level.cs" />
-    <Compile Include="Assets\SourceCode\GameConfig.cs" />
-    <Compile Include="Assets\SourceCode\GameController.cs" />
-    <Compile Include="Assets\SourceCode\GameInstaller.cs" />
-    <Compile Include="Assets\SourceCode\InputController.cs" />
-    <Compile Include="Assets\SourceCode\LevelCell.cs" />
-    <Compile Include="Assets\SourceCode\LevelEditor.cs" />
-    <Compile Include="Assets\SourceCode\LevelsController.cs" />
-    <Compile Include="Assets\SourceCode\LevelSelectionWindow.cs" />
-    <Compile Include="Assets\SourceCode\MissionCell.cs" />
-    <Compile Include="Assets\SourceCode\MissionsConfig.cs" />
-    <Compile Include="Assets\SourceCode\MissionsController.cs" />
-    <Compile Include="Assets\SourceCode\MissionsWindow.cs" />
+    <Compile Include="Assets\SourceCode\Controllers\BonusesController.cs" />
+    <Compile Include="Assets\SourceCode\Controllers\GameController.cs" />
+    <Compile Include="Assets\SourceCode\Controllers\InputController.cs" />
+    <Compile Include="Assets\SourceCode\Controllers\LevelsController.cs" />
+    <Compile Include="Assets\SourceCode\Controllers\MissionsController.cs" />
+    <Compile Include="Assets\SourceCode\Controllers\ProgressController.cs" />
+    <Compile Include="Assets\SourceCode\Controllers\WindowsController.cs" />
+    <Compile Include="Assets\SourceCode\Core\GameInstaller.cs" />
+    <Compile Include="Assets\SourceCode\Core\SingletonScriptableObject.cs" />
+    <Compile Include="Assets\SourceCode\DTOs\BonusConfig.cs" />
+    <Compile Include="Assets\SourceCode\DTOs\LevelConfig.cs" />
+    <Compile Include="Assets\SourceCode\DTOs\MissionsConfig.cs" />
+    <Compile Include="Assets\SourceCode\DTOs\PlatformConfig.cs" />
     <Compile Include="Assets\SourceCode\MissionType.cs" />
-    <Compile Include="Assets\SourceCode\Mover.cs" />
-    <Compile Include="Assets\SourceCode\Platform.cs" />
     <Compile Include="Assets\SourceCode\PlatformType.cs" />
-    <Compile Include="Assets\SourceCode\ProgressController.cs" />
-    <Compile Include="Assets\SourceCode\RequestWindowButton.cs" />
-    <Compile Include="Assets\SourceCode\SingletonScriptableObject.cs" />
-    <Compile Include="Assets\SourceCode\TopBarView.cs" />
-    <Compile Include="Assets\SourceCode\TransitionWindow.cs" />
-    <Compile Include="Assets\SourceCode\WindowBase.cs" />
-    <Compile Include="Assets\SourceCode\WindowsController.cs" />
+    <Compile Include="Assets\SourceCode\Views\BallView.cs" />
+    <Compile Include="Assets\SourceCode\Views\BonusCell.cs" />
+    <Compile Include="Assets\SourceCode\Views\BonusesWindow.cs" />
+    <Compile Include="Assets\SourceCode\Views\BottomBarView.cs" />
+    <Compile Include="Assets\SourceCode\Views\LevelCell.cs" />
+    <Compile Include="Assets\SourceCode\Views\LevelEditor.cs" />
+    <Compile Include="Assets\SourceCode\Views\LevelSelectionWindow.cs" />
+    <Compile Include="Assets\SourceCode\Views\MissionCell.cs" />
+    <Compile Include="Assets\SourceCode\Views\MissionsWindow.cs" />
+    <Compile Include="Assets\SourceCode\Views\Mover.cs" />
+    <Compile Include="Assets\SourceCode\Views\PlatformView.cs" />
+    <Compile Include="Assets\SourceCode\Views\RequestWindowButton.cs" />
+    <Compile Include="Assets\SourceCode\Views\TopBarView.cs" />
+    <Compile Include="Assets\SourceCode\Views\TransitionWindow.cs" />
+    <Compile Include="Assets\SourceCode\Views\WindowBase.cs" />
     <Compile Include="Assets\SourceCode\WindowType.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Archived\TestingPunch.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\Following.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\GeneralAdvancedTechniques.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\GeneralBasic.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\GeneralBasics2d.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\GeneralEasingTypes.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\GeneralEventsListeners.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\GeneralSequencer.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\GeneralSimpleUI.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\GeneralUISpace.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\LogoCinematic.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\PathBezier.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\PathBezier2d.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\PathSpline.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\PathSpline2d.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\PathSplineEndless.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\PathSplines.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\PathSplineTrack.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\TestingZLegacy.cs" />
-    <Compile Include="Assets\ThirdParty\LeanTween\Examples\Scripts\TestingZLegacyExt.cs" />
     <Compile Include="Assets\ThirdParty\LeanTween\Framework\LeanAudio.cs" />
     <Compile Include="Assets\ThirdParty\LeanTween\Framework\LeanSmooth.cs" />
     <Compile Include="Assets\ThirdParty\LeanTween\Framework\LeanTest.cs" />
@@ -127,9 +105,7 @@
     <Compile Include="Assets\ThirdParty\LeanTween\Framework\LTDescr.cs" />
     <Compile Include="Assets\ThirdParty\LeanTween\Framework\LTDescrOptional.cs" />
     <Compile Include="Assets\ThirdParty\LeanTween\Framework\LTSeq.cs" />
-    <None Include="Assets\ThirdParty\LeanTween\Examples\Archived\2dUnlitWithFade.shader" />
     <None Include="Assets\ThirdParty\LeanTween\ReadMe.txt" />
-    <None Include="Assets\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
     <None Include="Assets\ThirdParty\LeanTween\License.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -152,14 +128,14 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -332,20 +308,8 @@
     <Reference Include="UnityEngine.XRModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
-    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
-      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
-      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
-      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
-      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
-    </Reference>
     <Reference Include="Zenject-usage">
-      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+      <HintPath>C:/Users/OMekhedok/Documents/SPLASHY_Test/Assets/ThirdParty/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -706,14 +670,6 @@
     <ProjectReference Include="Zenject-Editor.csproj">
       <Project>{3D5CCA3E-4CC3-BB65-CEEF-01A5B82F6C6E}</Project>
       <Name>Zenject-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
-      <Project>{EAB61439-9680-5044-33A2-5BC17A66F426}</Project>
-      <Name>Zenject-ReflectionBaking-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
-      <Project>{A2A57E9E-F077-200E-984C-C758AC7D3018}</Project>
-      <Name>Zenject-PoolMonitor-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject.csproj">
       <Project>{46B7E5EC-CB38-3C16-CA9C-C8E97666EF1E}</Project>

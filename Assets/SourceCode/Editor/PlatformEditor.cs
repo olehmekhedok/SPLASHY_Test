@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-[CustomEditor(typeof(Platform))]
+[CustomEditor(typeof(PlatformView))]
 public class PlatformEditor : Editor
 {
     private IGameConfig _config;
@@ -22,7 +22,7 @@ public class PlatformEditor : Editor
         var platformType = (PlatformType) serializedObject.FindProperty("_type").enumValueIndex;
         var color = Config.GetPlatformColorBy(platformType);
 
-        var platform = (Platform) target;
+        var platform = (PlatformView) target;
         var renderer = platform.GetComponent<Renderer>();
         _propBlock.SetColor("_Color", color);
         renderer.SetPropertyBlock(_propBlock);
