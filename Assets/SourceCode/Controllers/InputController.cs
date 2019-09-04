@@ -10,7 +10,7 @@ public interface IInputController
 
 public class InputController : MonoBehaviour,
     IInputController,
-    IPointerClickHandler,
+    IPointerDownHandler,
     IDragHandler
 {
     public event Action<float> OnDrag;
@@ -26,7 +26,7 @@ public class InputController : MonoBehaviour,
         OnDrag?.Invoke(eventData.delta.x);
     }
 
-    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
     {
         OnClick?.Invoke();
     }
