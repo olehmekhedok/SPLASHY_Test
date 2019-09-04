@@ -1,0 +1,36 @@
+https://docs.google.com/document/d/18Bg8XdUXfEBAxB84WU6C6AehfCC2yMSazuL9MLxJpR4/edit
+Please take the time to read the instructions closely.
+
+Voodoo is a mobile game company based in France with studios in Barcelona, Amsterdam and Berlin. We design, develop and distribute worldwide fun games for everyone such as Paper.io 2, Hole.io, Ball Mayhem, Helix Jump and many more (+1 billion users). 
+
+We target a wide audience (women, men, children, seniors) all around the world, we call them “casual gamers”. As a gameplay developer, you need to find the best way to attract and retain people in the game.
+
+Our teams will evaluate your UI/UX sensitivity and your creativity ! 
+
+EXERCISE: 
+
+Please find below a list of games that we think have potential. Choose one game in the list and improve it using Unity / C# 
+SPLASHY! https://itunes.apple.com/fr/app/splashy/id1319500389?mt=8
+ROLLY VORTEX  https://itunes.apple.com/us/app/rolly-vortex/id1231932402?mt=8
+
+Your version of the game should feature original features that aim to : 
+improve the attractiveness of the game
+improve the retention of the game 
+
+You can also describe your features in a few short paragraphs if you  want to explain more. 
+
+The game should be fully functional on iPhone or Android.
+
+Please send us the following elements (mandatory):
+
+Short video of the gameplay 
+A way to test it on an iOS device (if possible)
+APK
+Unity Project (assets + project settings)
+
+Please group these elements in only one ZIP file and upload it via Wetransfer: https://wetransfer.com/
+
+Without one of these elements, your test will not be considered.
+
+Please send your resume and the test to the HR TEAM   mailto:jobs@voodoo.io
+Good Luck!
